@@ -47,6 +47,8 @@ public class CacheConfiguration {
             createCache(cm, com.gustavo.gastoprevisto.domain.User.class.getName());
             createCache(cm, com.gustavo.gastoprevisto.domain.Authority.class.getName());
             createCache(cm, com.gustavo.gastoprevisto.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.gustavo.gastoprevisto.domain.Propriedades.class.getName());
+            createCache(cm, com.gustavo.gastoprevisto.domain.Financeiro.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

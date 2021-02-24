@@ -1,0 +1,11 @@
+id;data_pagamento;data_vencimento;valor_planejado;valor_pago;periodicidade;quantidade_parcelas;moeda;descricao;tipo_financeiro;comprovante_pagamento;comprovante_pagamento_content_type
+1;2021-02-24;2021-02-23;22212;59460;36177;14190;EURO;Belarussian Ruble monitor Granite;DESPESA;../fake-data/blob/hipster.png;image/png
+2;2021-02-24;2021-02-24;79771;69480;40303;73938;KWANZA;Iowa Sleek Rubber Shirt;DESPESA;../fake-data/blob/hipster.png;image/png
+3;2021-02-23;2021-02-24;37728;40777;19699;93580;REAL;digital e-enable;DESPESA;../fake-data/blob/hipster.png;image/png
+4;2021-02-24;2021-02-24;66557;59701;62641;47951;DOLAR;Sudanese Pound tan;DESPESA;../fake-data/blob/hipster.png;image/png
+5;2021-02-24;2021-02-23;52575;97828;70315;79300;KWANZA;Comoro Franc CSS;DESPESA;../fake-data/blob/hipster.png;image/png
+6;2021-02-23;2021-02-24;31675;40304;38647;52576;DOLAR;hack;RECEITA;../fake-data/blob/hipster.png;image/png
+7;2021-02-23;2021-02-23;86122;35577;98847;10440;DOLAR;relationships Metal;DESPESA;../fake-data/blob/hipster.png;image/png
+8;2021-02-24;2021-02-24;11443;40326;66732;33417;DOLAR;Dynamic generate Cambridgeshire;DESPESA;../fake-data/blob/hipster.png;image/png
+9;2021-02-23;2021-02-24;17556;74323;57951;12786;REAL;Handmade Metal Pizza Internal;DESPESA;../fake-data/blob/hipster.png;image/png
+10;2021-02-23;2021-02-24;75314;13331;3817;96013;DOLAR;Liberian Dollar Kids;RECEITA;../fake-data/blob/hipster.png;image/png

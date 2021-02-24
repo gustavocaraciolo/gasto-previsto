@@ -1,0 +1,9 @@
+{
+  "gastoPrevistoApp": {
+    "TipoFinanceiro": {
+      "null": "",
+      "DESPESA": "DESPESA",
+      "RECEITA": "RECEITA"
+    }
+  }
+}
