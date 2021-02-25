@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Financeiro.
+    -->
+    <changeSet id="20210225091319-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="financeiro"
+                                 constraintName="fk_financeiro_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="financeiro_id"
+                                 baseTableName="financeiro"
+                                 constraintName="fk_financeiro_financeiro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipos_financeiro"/>
+
+        <addForeignKeyConstraint baseColumnNames="financeiro_id"
+                                 baseTableName="financeiro_anexo"
+                                 constraintName="fk_financeiro_anexo_financeiro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="financeiro"/>
+
+        <addForeignKeyConstraint baseColumnNames="anexo_id"
+                                 baseTableName="financeiro_anexo"
+                                 constraintName="fk_financeiro_anexo_anexo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="anexo"/>
+        
+    </changeSet>
+</databaseChangeLog>

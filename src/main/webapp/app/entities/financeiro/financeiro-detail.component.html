@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="financeiro">
+            <h2><span jhiTranslate="gastoPrevistoApp.financeiro.detail.title">Financeiro</span> {{ financeiro.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.dataPagamento">Data Pagamento</span></dt>
+                <dd>
+                    <span>{{ financeiro.dataPagamento }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.dataVencimento">Data Vencimento</span></dt>
+                <dd>
+                    <span>{{ financeiro.dataVencimento }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.valorPlanejado">Valor Planejado</span></dt>
+                <dd>
+                    <span>{{ financeiro.valorPlanejado }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.valorPago">Valor Pago</span></dt>
+                <dd>
+                    <span>{{ financeiro.valorPago }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.periodicidade">Periodicidade</span></dt>
+                <dd>
+                    <span>{{ financeiro.periodicidade }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.quantidadeParcelas">Quantidade Parcelas</span></dt>
+                <dd>
+                    <span>{{ financeiro.quantidadeParcelas }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.moeda">Moeda</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gastoPrevistoApp.Moeda.' + financeiro.moeda }}">{{ financeiro.moeda }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{ financeiro.descricao }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.categoriaFinanceiro">Categoria Financeiro</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gastoPrevistoApp.CategoriaFinanceiro.' + financeiro.categoriaFinanceiro }}">{{ financeiro.categoriaFinanceiro }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.user">User</span></dt>
+                <dd>
+                    {{ financeiro.user?.login }}
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.financeiro">Financeiro</span></dt>
+                <dd>
+                    <div *ngIf="financeiro.financeiro">
+                        <a [routerLink]="['/tipos-financeiro', financeiro.financeiro?.id, 'view']">{{ financeiro.financeiro?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.financeiro.anexo">Anexo</span></dt>
+                <dd>
+                    <span *ngFor="let anexo of financeiro.anexos; let last = last">
+                        <a [routerLink]="['/anexo', anexo?.id, 'view']">{{ anexo.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/financeiro', financeiro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

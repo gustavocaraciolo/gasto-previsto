@@ -1,0 +1,22 @@
+{
+  "gastoPrevistoApp": {
+    "tiposFinanceiro": {
+      "home": {
+        "title": "Tipos Financeiros",
+        "createLabel": "Criar novo Tipos Financeiro",
+        "createOrEditLabel": "Criar ou editar Tipos Financeiro",
+        "notFound": "Nenhum Tipos Financeiro encontrado"
+      },
+      "created": "Um novo Tipos Financeiro foi criado com o identificador {{ param }}",
+      "updated": "Um Tipos Financeiro foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Tipos Financeiro foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Tipos Financeiro {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipos Financeiro"
+      },
+      "nome": "Nome"
+    }
+  }
+}
