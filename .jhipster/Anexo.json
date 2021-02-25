@@ -1,0 +1,39 @@
+{
+  "name": "Anexo",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "propriedades",
+      "otherEntityRelationshipName": "anexo",
+      "relationshipName": "proriedade",
+      "otherEntityField": "id",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "financeiro",
+      "otherEntityRelationshipName": "anexo",
+      "relationshipName": "financeiro",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210225091112",
+  "entityTableName": "anexo",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
