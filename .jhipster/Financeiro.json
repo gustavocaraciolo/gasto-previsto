@@ -1,0 +1,71 @@
+{
+  "name": "Financeiro",
+  "fields": [
+    {
+      "fieldName": "dataPagamento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataVencimento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "valorPlanejado",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "valorPago",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "periodicidade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "quantidadeParcelas",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "moeda",
+      "fieldType": "Moeda",
+      "fieldValues": "REAL,DOLAR,EURO,KWANZA"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoFinanceiro",
+      "fieldType": "TipoFinanceiro",
+      "fieldValues": "DESPESA,RECEITA"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "financeiro",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "anexo",
+      "otherEntityRelationshipName": "financeiro",
+      "relationshipName": "anexo",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210225082352",
+  "entityTableName": "financeiro",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
