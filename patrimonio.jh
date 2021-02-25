@@ -1,0 +1,50 @@
+
+entity Propriedades {
+	nome String
+    moeda Moeda
+    valorEstimado BigDecimal
+    dtAssContrato LocalDate
+    descricao TextBlob
+}
+
+entity Financeiro {
+    dataPagamento LocalDate
+	dataVencimento LocalDate
+    valorPlanejado BigDecimal
+    valorPago BigDecimal
+    periodicidade Integer
+    quantidadeParcelas Integer
+    moeda Moeda
+    descricao String
+    categoriaFinanceiro CategoriaFinanceiro
+}
+
+entity TiposFinanceiro {
+	nome String
+}
+
+entity Anexo {
+	nome AnyBlob
+}
+
+enum CategoriaFinanceiro {
+    DESPESA, RECEITA
+}
+
+enum Moeda {
+    REAL, DOLAR, EURO, KWANZA
+}
+
+relationship ManyToMany {
+  Propriedades{anexo} to Anexo{proriedade}
+  Financeiro{anexo} to Anexo{financeiro}
+}
+
+relationship ManyToOne {
+  Propriedades{user(login)} to User
+  Financeiro{user(login)} to User
+  Financeiro{financeiro} to TiposFinanceiro
+}
+
+filter Financeiro
+service all with serviceImpl
