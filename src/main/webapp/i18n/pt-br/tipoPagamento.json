@@ -1,0 +1,11 @@
+{
+  "gastoPrevistoApp": {
+    "TipoPagamento": {
+      "null": "",
+      "ENTRADA": "ENTRADA",
+      "INTERCALADA": "INTERCALADA",
+      "MENSAL": "MENSAL",
+      "RESTANTE": "RESTANTE"
+    }
+  }
+}

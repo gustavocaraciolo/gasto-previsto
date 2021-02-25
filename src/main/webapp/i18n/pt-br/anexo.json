@@ -1,0 +1,24 @@
+{
+  "gastoPrevistoApp": {
+    "anexo": {
+      "home": {
+        "title": "Anexos",
+        "createLabel": "Criar novo Anexo",
+        "createOrEditLabel": "Criar ou editar Anexo",
+        "notFound": "Nenhum Anexo encontrado"
+      },
+      "created": "Um novo Anexo foi criado com o identificador {{ param }}",
+      "updated": "Um Anexo foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Anexo foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Anexo {{ id }}?"
+      },
+      "detail": {
+        "title": "Anexo"
+      },
+      "nome": "Nome",
+      "proriedade": "Proriedade",
+      "financeiro": "Financeiro"
+    }
+  }
+}
