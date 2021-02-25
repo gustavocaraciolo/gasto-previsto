@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-propriedades-heading" jhiTranslate="gastoPrevistoApp.propriedades.home.createOrEditLabel">Create or edit a Propriedades</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.propriedades.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.propriedades.moeda" for="field_moeda">Moeda</label>
+                    <select class="form-control" name="moeda" formControlName="moeda" id="field_moeda">
+                        <option value="REAL">{{ 'gastoPrevistoApp.Moeda.REAL' | translate }}</option>
+                        <option value="DOLAR">{{ 'gastoPrevistoApp.Moeda.DOLAR' | translate }}</option>
+                        <option value="EURO">{{ 'gastoPrevistoApp.Moeda.EURO' | translate }}</option>
+                        <option value="KWANZA">{{ 'gastoPrevistoApp.Moeda.KWANZA' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.propriedades.dtAssContrato" for="field_dtAssContrato">Dt Ass Contrato</label>
+                    <div class="input-group">
+                        <input id="field_dtAssContrato" type="text" class="form-control" name="dtAssContrato" ngbDatepicker #dtAssContratoDp="ngbDatepicker" formControlName="dtAssContrato"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dtAssContratoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.propriedades.descricao" for="field_descricao">Descricao</label>
+                    <textarea class="form-control" name="descricao" id="field_descricao"
+                              formControlName="descricao"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.propriedades.tipoPagamento" for="field_tipoPagamento">Tipo Pagamento</label>
+                    <select class="form-control" name="tipoPagamento" formControlName="tipoPagamento" id="field_tipoPagamento">
+                        <option value="ENTRADA">{{ 'gastoPrevistoApp.TipoPagamento.ENTRADA' | translate }}</option>
+                        <option value="INTERCALADA">{{ 'gastoPrevistoApp.TipoPagamento.INTERCALADA' | translate }}</option>
+                        <option value="MENSAL">{{ 'gastoPrevistoApp.TipoPagamento.MENSAL' | translate }}</option>
+                        <option value="RESTANTE">{{ 'gastoPrevistoApp.TipoPagamento.RESTANTE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.propriedades.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="gastoPrevistoApp.propriedades.anexo" for="field_anexos">Anexo</label>
+                    <select class="form-control" id="field_anexos" multiple name="anexos" formControlName="anexos">
+                        <option [ngValue]="getSelected(editForm.get('anexos')!.value, anexoOption)" *ngFor="let anexoOption of anexos; trackBy: trackById">{{ anexoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
