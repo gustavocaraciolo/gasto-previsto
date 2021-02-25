@@ -1,0 +1,55 @@
+{
+  "name": "Propriedades",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "moeda",
+      "fieldType": "Moeda",
+      "fieldValues": "REAL,DOLAR,EURO,KWANZA"
+    },
+    {
+      "fieldName": "dtAssContrato",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "tipoPagamento",
+      "fieldType": "TipoPagamento",
+      "fieldValues": "ENTRADA,INTERCALADA,MENSAL,RESTANTE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "propriedades",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "anexo",
+      "otherEntityRelationshipName": "propriedades",
+      "relationshipName": "anexo",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210225081223",
+  "entityTableName": "propriedades",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

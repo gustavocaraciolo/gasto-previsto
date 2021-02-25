@@ -1,0 +1,22 @@
+{
+  "name": "Anexo",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210225081423",
+  "entityTableName": "anexo",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
