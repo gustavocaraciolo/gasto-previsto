@@ -1,0 +1,28 @@
+{
+  "gastoPrevistoApp": {
+    "propriedades": {
+      "home": {
+        "title": "Propriedades",
+        "createLabel": "Create a new Propriedades",
+        "createOrEditLabel": "Create or edit a Propriedades",
+        "notFound": "No Propriedades found"
+      },
+      "created": "A new Propriedades is created with identifier {{ param }}",
+      "updated": "A Propriedades is updated with identifier {{ param }}",
+      "deleted": "A Propriedades is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Propriedades {{ id }}?"
+      },
+      "detail": {
+        "title": "Propriedades"
+      },
+      "nome": "Nome",
+      "moeda": "Moeda",
+      "valorEstimado": "Valor Estimado",
+      "dtAssContrato": "Dt Ass Contrato",
+      "descricao": "Descricao",
+      "user": "User",
+      "anexo": "Anexo"
+    }
+  }
+}
