@@ -1,0 +1,33 @@
+{
+  "gastoPrevistoApp": {
+    "financeiro": {
+      "home": {
+        "title": "Financeiros",
+        "createLabel": "Create a new Financeiro",
+        "createOrEditLabel": "Create or edit a Financeiro",
+        "notFound": "No Financeiros found"
+      },
+      "created": "A new Financeiro is created with identifier {{ param }}",
+      "updated": "A Financeiro is updated with identifier {{ param }}",
+      "deleted": "A Financeiro is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Financeiro {{ id }}?"
+      },
+      "detail": {
+        "title": "Financeiro"
+      },
+      "dataPagamento": "Data Pagamento",
+      "dataVencimento": "Data Vencimento",
+      "valorPlanejado": "Valor Planejado",
+      "valorPago": "Valor Pago",
+      "periodicidade": "Periodicidade",
+      "quantidadeParcelas": "Quantidade Parcelas",
+      "moeda": "Moeda",
+      "descricao": "Descricao",
+      "categoriaFinanceiro": "Categoria Financeiro",
+      "user": "User",
+      "financeiro": "Financeiro",
+      "anexo": "Anexo"
+    }
+  }
+}
