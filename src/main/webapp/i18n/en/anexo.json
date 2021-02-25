@@ -1,0 +1,24 @@
+{
+  "gastoPrevistoApp": {
+    "anexo": {
+      "home": {
+        "title": "Anexos",
+        "createLabel": "Create a new Anexo",
+        "createOrEditLabel": "Create or edit a Anexo",
+        "notFound": "No Anexos found"
+      },
+      "created": "A new Anexo is created with identifier {{ param }}",
+      "updated": "A Anexo is updated with identifier {{ param }}",
+      "deleted": "A Anexo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Anexo {{ id }}?"
+      },
+      "detail": {
+        "title": "Anexo"
+      },
+      "nome": "Nome",
+      "proriedade": "Proriedade",
+      "financeiro": "Financeiro"
+    }
+  }
+}

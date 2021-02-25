@@ -1,0 +1,28 @@
+{
+  "name": "TipoFinanceiro",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "financeiro",
+      "otherEntityRelationshipName": "tipoFinanceiro",
+      "relationshipName": "tipoFinanceiro"
+    }
+  ],
+  "changelogDate": "20210225091645",
+  "entityTableName": "tipo_financeiro",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

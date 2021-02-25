@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-financeiro-heading" jhiTranslate="gastoPrevistoApp.financeiro.home.createOrEditLabel">Create or edit a Financeiro</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.dataPagamento" for="field_dataPagamento">Data Pagamento</label>
+                    <div class="input-group">
+                        <input id="field_dataPagamento" type="text" class="form-control" name="dataPagamento" ngbDatepicker #dataPagamentoDp="ngbDatepicker" formControlName="dataPagamento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataPagamentoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.dataVencimento" for="field_dataVencimento">Data Vencimento</label>
+                    <div class="input-group">
+                        <input id="field_dataVencimento" type="text" class="form-control" name="dataVencimento" ngbDatepicker #dataVencimentoDp="ngbDatepicker" formControlName="dataVencimento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataVencimentoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.valorPlanejado" for="field_valorPlanejado">Valor Planejado</label>
+                    <input type="number" class="form-control" name="valorPlanejado" id="field_valorPlanejado"
+                           formControlName="valorPlanejado"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.valorPago" for="field_valorPago">Valor Pago</label>
+                    <input type="number" class="form-control" name="valorPago" id="field_valorPago"
+                           formControlName="valorPago"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.periodicidade" for="field_periodicidade">Periodicidade</label>
+                    <input type="number" class="form-control" name="periodicidade" id="field_periodicidade"
+                           formControlName="periodicidade"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.quantidadeParcelas" for="field_quantidadeParcelas">Quantidade Parcelas</label>
+                    <input type="number" class="form-control" name="quantidadeParcelas" id="field_quantidadeParcelas"
+                           formControlName="quantidadeParcelas"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.moeda" for="field_moeda">Moeda</label>
+                    <select class="form-control" name="moeda" formControlName="moeda" id="field_moeda">
+                        <option value="REAL">{{ 'gastoPrevistoApp.Moeda.REAL' | translate }}</option>
+                        <option value="DOLAR">{{ 'gastoPrevistoApp.Moeda.DOLAR' | translate }}</option>
+                        <option value="EURO">{{ 'gastoPrevistoApp.Moeda.EURO' | translate }}</option>
+                        <option value="KWANZA">{{ 'gastoPrevistoApp.Moeda.KWANZA' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.descricao" for="field_descricao">Descricao</label>
+                    <input type="text" class="form-control" name="descricao" id="field_descricao"
+                           formControlName="descricao"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.categoriaFinanceiro" for="field_categoriaFinanceiro">Categoria Financeiro</label>
+                    <select class="form-control" name="categoriaFinanceiro" formControlName="categoriaFinanceiro" id="field_categoriaFinanceiro">
+                        <option value="DESPESA">{{ 'gastoPrevistoApp.CategoriaFinanceiro.DESPESA' | translate }}</option>
+                        <option value="RECEITA">{{ 'gastoPrevistoApp.CategoriaFinanceiro.RECEITA' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="gastoPrevistoApp.financeiro.anexo" for="field_anexos">Anexo</label>
+                    <select class="form-control" id="field_anexos" multiple name="anexos" formControlName="anexos">
+                        <option [ngValue]="getSelected(editForm.get('anexos')!.value, anexoOption)" *ngFor="let anexoOption of anexos; trackBy: trackById">{{ anexoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gastoPrevistoApp.financeiro.tipoFinanceiro" for="field_tipoFinanceiro">Tipo Financeiro</label>
+                    <select class="form-control" id="field_tipoFinanceiro" name="tipoFinanceiro" formControlName="tipoFinanceiro">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoFinanceiroOption.id === editForm.get('tipoFinanceiro')!.value?.id ? editForm.get('tipoFinanceiro')!.value : tipoFinanceiroOption" *ngFor="let tipoFinanceiroOption of tipofinanceiros; trackBy: trackById">{{ tipoFinanceiroOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
