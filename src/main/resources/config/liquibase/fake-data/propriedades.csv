@@ -1,0 +1,11 @@
+id;nome;moeda;valor_estimado;dt_ass_contrato;descricao;tipo_pagamento
+1;Buckinghamshire Rapid quantifying;EURO;49154;2021-02-25;../fake-data/blob/hipster.txt;MENSAL
+2;Green Hawaii Frozen;DOLAR;45829;2021-02-25;../fake-data/blob/hipster.txt;INTERCALADA
+3;Fresh;DOLAR;59434;2021-02-24;../fake-data/blob/hipster.txt;RESTANTE
+4;Personal Loan Account copying;KWANZA;70353;2021-02-25;../fake-data/blob/hipster.txt;MENSAL
+5;hard drive Botswana;EURO;10122;2021-02-24;../fake-data/blob/hipster.txt;MENSAL
+6;Shirt Bike;REAL;50021;2021-02-25;../fake-data/blob/hipster.txt;RESTANTE
+7;Persevering vertical SMTP;REAL;59190;2021-02-24;../fake-data/blob/hipster.txt;INTERCALADA
+8;payment orchestration;REAL;35611;2021-02-24;../fake-data/blob/hipster.txt;RESTANTE
+9;invoice microchip;REAL;37636;2021-02-24;../fake-data/blob/hipster.txt;INTERCALADA
+10;web-readiness schemas;KWANZA;86977;2021-02-24;../fake-data/blob/hipster.txt;MENSAL

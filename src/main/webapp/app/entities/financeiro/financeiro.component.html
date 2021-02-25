@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gastoPrevistoApp.financeiro.home.title">Financeiros</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-financeiro" [routerLink]="['/financeiro/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gastoPrevistoApp.financeiro.home.createLabel">
+            Create a new Financeiro
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="financeiros?.length === 0">
+        <span jhiTranslate="gastoPrevistoApp.financeiro.home.notFound">No financeiros found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="financeiros && financeiros.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.dataPagamento">Data Pagamento</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.dataVencimento">Data Vencimento</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.valorPlanejado">Valor Planejado</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.valorPago">Valor Pago</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.periodicidade">Periodicidade</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.quantidadeParcelas">Quantidade Parcelas</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.moeda">Moeda</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.descricao">Descricao</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.tipoFinanceiro">Tipo Financeiro</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.user">User</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.propriedades">Propriedades</span></th>
+                    <th scope="col" ><span jhiTranslate="gastoPrevistoApp.financeiro.anexo">Anexo</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let financeiro of financeiros ;trackBy: trackId">
+                    <td><a [routerLink]="['/financeiro', financeiro.id, 'view']">{{ financeiro.id }}</a></td>
+                    <td>{{ financeiro.dataPagamento | date:'mediumDate' }}</td>
+                    <td>{{ financeiro.dataVencimento | date:'mediumDate' }}</td>
+                    <td>{{ financeiro.valorPlanejado }}</td>
+                    <td>{{ financeiro.valorPago }}</td>
+                    <td>{{ financeiro.periodicidade }}</td>
+                    <td>{{ financeiro.quantidadeParcelas }}</td>
+                    <td jhiTranslate="{{ 'gastoPrevistoApp.Moeda.' + financeiro.moeda }}">{{ financeiro.moeda }}</td>
+                    <td>{{ financeiro.descricao }}</td>
+                    <td jhiTranslate="{{ 'gastoPrevistoApp.TipoFinanceiro.' + financeiro.tipoFinanceiro }}">{{ financeiro.tipoFinanceiro }}</td>
+                    <td>
+                        {{ financeiro.user?.login }}
+                    </td>
+                    <td>
+                        <div *ngIf="financeiro.propriedades">
+                            <a [routerLink]="['/propriedades', financeiro.propriedades?.id, 'view']" >{{ financeiro.propriedades?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <span *ngFor="let anexo of financeiro.anexos; let last = last">
+                            <a class="form-control-static" [routerLink]="['/anexo', anexo?.id, 'view']">{{ anexo.id }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/financeiro', financeiro.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/financeiro', financeiro.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(financeiro)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

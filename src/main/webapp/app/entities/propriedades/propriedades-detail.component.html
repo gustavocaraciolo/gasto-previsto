@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="propriedades">
+            <h2><span jhiTranslate="gastoPrevistoApp.propriedades.detail.title">Propriedades</span> {{ propriedades.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ propriedades.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.moeda">Moeda</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gastoPrevistoApp.Moeda.' + propriedades.moeda }}">{{ propriedades.moeda }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.valorEstimado">Valor Estimado</span></dt>
+                <dd>
+                    <span>{{ propriedades.valorEstimado }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.dtAssContrato">Dt Ass Contrato</span></dt>
+                <dd>
+                    <span>{{ propriedades.dtAssContrato }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.descricao">Descricao</span></dt>
+                <dd>
+                    <span>{{ propriedades.descricao }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.tipoPagamento">Tipo Pagamento</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gastoPrevistoApp.TipoPagamento.' + propriedades.tipoPagamento }}">{{ propriedades.tipoPagamento }}</span>
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.user">User</span></dt>
+                <dd>
+                    {{ propriedades.user?.login }}
+                </dd>
+                <dt><span jhiTranslate="gastoPrevistoApp.propriedades.anexo">Anexo</span></dt>
+                <dd>
+                    <span *ngFor="let anexo of propriedades.anexos; let last = last">
+                        <a [routerLink]="['/anexo', anexo?.id, 'view']">{{ anexo.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/propriedades', propriedades.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
