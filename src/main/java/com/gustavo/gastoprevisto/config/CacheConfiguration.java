@@ -47,6 +47,14 @@ public class CacheConfiguration {
             createCache(cm, com.gustavo.gastoprevisto.domain.User.class.getName());
             createCache(cm, com.gustavo.gastoprevisto.domain.Authority.class.getName());
             createCache(cm, com.gustavo.gastoprevisto.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.gustavo.gastoprevisto.domain.Propriedades.class.getName());
+            createCache(cm, com.gustavo.gastoprevisto.domain.Propriedades.class.getName() + ".anexos");
+            createCache(cm, com.gustavo.gastoprevisto.domain.Financeiro.class.getName());
+            createCache(cm, com.gustavo.gastoprevisto.domain.Financeiro.class.getName() + ".anexos");
+            createCache(cm, com.gustavo.gastoprevisto.domain.TipoFinanceiro.class.getName());
+            createCache(cm, com.gustavo.gastoprevisto.domain.Anexo.class.getName());
+            createCache(cm, com.gustavo.gastoprevisto.domain.Anexo.class.getName() + ".proriedades");
+            createCache(cm, com.gustavo.gastoprevisto.domain.Anexo.class.getName() + ".financeiros");
             // jhipster-needle-ehcache-add-entry
         };
     }
